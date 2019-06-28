@@ -14,8 +14,16 @@ app.set('views', 'views');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use((req, res, next) => {
+app.get('/logger',  (req, res, next) => {
+    res.render('logger');
+})
+
+app.get('/', (req, res, next) => {
     res.render('index');
+})
+
+app.use((req, res, next) => {
+    res.render('error');
 })
 
 app.listen(3000);
