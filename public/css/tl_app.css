@@ -1,0 +1,31 @@
+
+/* === body === */
+
+/* == table */
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+table {
+    padding: 10px;
+    margin: 10px;
+}
+
+th, td {
+    padding: 10px;
+}
+.input-box {
+    width: 250px;
+}
+
+/* .input-box__submit {
+    width: 100%
+} */
+
+input, button {
+    width : 150px;
+    margin: 0;
+    box-sizing: border-box;
+}

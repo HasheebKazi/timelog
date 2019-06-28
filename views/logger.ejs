@@ -1,29 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Time Logger</title>
-  
+    <title> <%= pageTitle %> </title>
 
+    <!-- <link type="text/css" rel="stylesheet" href="/css/reset.css"> -->
     <link type="text/css" rel="stylesheet" href="/css/tl_app.css">
+
     <script src="/scripts/logger-scripts.js"></script>
-    
+
 </head>
 
 <body>
-    
+
     <main class="landing-wrapper">
-            <h1 class="landing-wrapper__title">
-                    Time Logging App.
-                </h1>
-                <a href=""></a>
-        
-                <div class="landing-wrapper__buttons">
-                    <a href="/logger" class="landing-wrapper__links">Start</a>
-                    <a href="/" class="landing-wrapper__links">Learn More</a>
+        <h1 class="landing-wrapper__title">
+            Time Logger for <%= user.name %>.
+        </h1>
+
+        <h2>Date: <%= currentDate %></h2>
+        <h2>Log</h2>
+
+        <div class="body_wrapper">
+
+            <table id="daily-log">
+                <tr>
+                    <th>
+
+                    </th>
+                    <th>
+                        Activity
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <span>9:Am</span>
+                    </td>
+                    <td>
+                        Get Out of Bed
+                    </td>
+                </tr>
+            </table>
+
+            <hr>
+
+            <div class="input-box">
+                
+                <div class="form-control">
+                    <!-- <lable for="logger-time">Time</lable> -->
+                    <input type="text" name="logger-time" id="logger-time" placeholder="time">
                 </div>
+
+                <div class="form-control">
+                    <!-- <lable for="logger-activity">Activity</lable> -->
+                    <input type="text" name="logger-activity" id="logger-activity" placeholder="activity">
+                </div>
+
+                <button class="input-box__submit" id="add-entry">Add</button>
+                <button class="input-box__save" id="add-entry">Save</button>
+            </div>
+
+        </div>
+
+
+
     </main>
 </body>
+
 </html>

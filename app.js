@@ -15,7 +15,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/logger',  (req, res, next) => {
-    res.render('logger');
+    res.render('logger', {
+        pageTitle: 'App',
+        user: {
+            name: 'Name'
+        },
+        currentDate: 'Someday Month Day, Year'
+    });
 })
 
 app.get('/', (req, res, next) => {
