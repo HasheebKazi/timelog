@@ -27,22 +27,34 @@
         <div class="body_wrapper">
 
             <table id="daily-log">
-                <tr>
-                    <th>
-
-                    </th>
-                    <th>
-                        Activity
-                    </th>
-                </tr>
-                <tr>
-                    <td>
-                        <span>9:Am</span>
-                    </td>
-                    <td>
-                        Get Out of Bed
-                    </td>
-                </tr>
+                <thead>
+                    <tr>
+                        <th style="width: 150px">
+    
+                        </th>
+                        <th style="width: 250px">
+                            Activity
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="daily-log-body">
+                    <% for (let i = 0; i < data.length; i++) { %>
+                        <!-- <% console.log("dsfsdf", data[i].time) %> -->
+                        <tr>
+                            <td><%= data[i].time %></td>
+                            <td><%= data[i].activity %></td>
+                        </tr>
+                    <% } %>
+                    
+                    <!-- <tr>
+                        <td>9:00</td>
+                        <td>Apple</td>
+                    </tr>
+                    <tr>
+                        <td>10:00</td>
+                        <td>Cat</td>
+                    </tr> -->
+                </tbody>
             </table>
 
             <hr>
@@ -60,7 +72,7 @@
                 </div>
 
                 <button class="input-box__submit" id="add-entry">Add</button>
-                <button class="input-box__save" id="add-entry">Save</button>
+                <button class="input-box__save" id="save-log">Save</button>
             </div>
 
         </div>

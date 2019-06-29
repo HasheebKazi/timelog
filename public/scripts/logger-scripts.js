@@ -3,11 +3,11 @@ window.onload = function () {
 
     let timeInput = document.getElementById('logger-time');
     let activityInput = document.getElementById('logger-activity');
-    let button = document.getElementById('add-entry');
+    let addButton = document.getElementById('add-entry');
 
-    let table = document.getElementById('daily-log');
+    let tableBody = document.getElementById('daily-log-body');
 
-    button.addEventListener('click', (event) => {
+    addButton.addEventListener('click', (event) => {
         // get data
         time = timeInput.value;
         activity = activityInput.value;
@@ -22,6 +22,30 @@ window.onload = function () {
         td2.append(document.createTextNode(activity));
         row.append(td1);
         row.append(td2);
-        table.append(row);
+        tableBody.append(row);
+    });
+
+
+
+    let saveButton = document.getElementById('save-log');
+    
+    saveButton.addEventListener('click', (event) => {
+        let log = [];
+        let data = tableBody.children;
+        let datalen = data.length;
+        for (let index = 0; index < datalen; index++) {
+            log.push({
+                time: data[index].children[0].textContent,
+                activity: data[index].children[1].textContent
+            });
+        }
+        // console.log(log);
+
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", 'http://localhost:3000/logger', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify({
+            value: log
+        }));
     });
 }
