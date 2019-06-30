@@ -16,17 +16,16 @@
 
 <body>
 
-    <main class="landing-wrapper">
+    <main class="main-wrapper">
         <h1 class="landing-wrapper__title">
             Time Logger for <%= user.name %>.
         </h1>
 
         <h2>Date: <%= currentDate %></h2>
-        <h2>Log</h2>
 
-        <div class="body_wrapper">
+        <!-- <div class="body_wrapper"> -->
 
-            <table id="daily-log">
+            <table id="daily-log" class="log-display">
                 <thead>
                     <tr>
                         <th style="width: 150px">
@@ -45,37 +44,29 @@
                             <td><%= data[i].activity %></td>
                         </tr>
                     <% } %>
-                    
-                    <!-- <tr>
-                        <td>9:00</td>
-                        <td>Apple</td>
-                    </tr>
-                    <tr>
-                        <td>10:00</td>
-                        <td>Cat</td>
-                    </tr> -->
+                
                 </tbody>
             </table>
 
-            <hr>
+            <!-- <hr> -->
 
             <div class="input-box">
                 
-                <div class="form-control">
+                <div class="input-box__form-control">
                     <!-- <lable for="logger-time">Time</lable> -->
-                    <input type="text" name="logger-time" id="logger-time" placeholder="time">
+                    <input class="input-box__text-input" type="text" name="logger-time" id="logger-time" placeholder="time">
+
                 </div>
 
-                <div class="form-control">
+                <div class="input-box__form-control">
                     <!-- <lable for="logger-activity">Activity</lable> -->
-                    <input type="text" name="logger-activity" id="logger-activity" placeholder="activity">
+                    <input class="input-box__text-input" type="text" name="logger-activity" id="logger-activity" placeholder="activity">
                 </div>
 
-                <button class="input-box__submit" id="add-entry">Add</button>
-                <button class="input-box__save" id="save-log">Save</button>
+                <button class="input-box__btn input-box__btn--add" id="add-entry">Add</button><button class="input-box__btn input-box__btn--save" id="save-log">Save</button>
             </div>
 
-        </div>
+        <!-- </div> -->
 
 
 
