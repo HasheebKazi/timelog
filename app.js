@@ -6,6 +6,10 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const fs = require('fs');
 
+
+// internal imports
+const loggerRoutes = require('./routes/logger_routes');
+
 // initialize and configure app
 const app = express();
 app.set('view engine', 'ejs');
@@ -15,46 +19,12 @@ app.set('views', 'views');
 app.use(express.static(path.join(__dirname, 'public')));
 // app.use(bodyParser.urlencoded({ extended: false }));
 
-const jsonParser = bodyParser.json();
-
 
 app.get('/', (req, res, next) => {
     res.render('index');
 })
 
-app.get('/logger',  (req, res, next) => {
-    fs.readFile('./data/log.txt', 'utf8', (err, result) => {
-        result = JSON.parse(result);
-        
-        if (!err) {
-            res.render('logger', {
-                pageTitle: 'App',
-                user: {
-                    name: 'Name'
-                },
-                currentDate: 'Someday Month Day, Year',
-                data: result
-            });
-        } else {
-            console.log(err);
-        }
-    })
-
-
-
-})
-
-app.post('/logger', jsonParser, (req, res, next) => {
-    console.log(req.body.value);
-    fs.writeFile('./data/log.txt', JSON.stringify(req.body.value), err => {
-        if (err) {
-            console.log(err);
-        } else {
-            console.log('data-saved');
-        }
-    })
-
-})
+app.use(loggerRoutes);
 
 app.use((req, res, next) => {
     res.render('error');
