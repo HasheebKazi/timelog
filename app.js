@@ -1,13 +1,18 @@
 // external dependences: node modules
 const express = require('express');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
 // node core libraries
 const path = require('path');
 const fs = require('fs');
 
+// const MONGODB_URI = process.env.MONGODB_URI;
+const MONGODB_URI = 'mongodb+srv://node_project:AkWcOzQBkbWJdXoA@summer-2019-fo8l7.mongodb.net/timelog';
+console.log(MONGODB_URI);
 
 // internal imports
+// controllers
 const loggerRoutes = require('./routes/logger_routes');
 
 // initialize and configure app
@@ -30,4 +35,10 @@ app.use((req, res, next) => {
     res.render('error');
 })
 
-app.listen(3000);
+mongoose.connect(MONGODB_URI)
+    .then(result => {
+        app.listen(3000);
+    })
+    .catch(err => {
+        console.log(err);
+    });

@@ -25,7 +25,8 @@ window.onload = function () {
         db.append(document.createTextNode("x"));
         td2.append(db);
         db.addEventListener('click', event => {
-            row.remove();
+            console.log('removed!')
+            db.parentElement.parentElement.remove();
         })
         
 
