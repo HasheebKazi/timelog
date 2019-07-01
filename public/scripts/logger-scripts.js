@@ -20,8 +20,22 @@ window.onload = function () {
         td2 = document.createElement('td');
         td1.append(document.createTextNode(time));
         td2.append(document.createTextNode(activity));
+        db = document.createElement('button');
+        db.classList.add("daily-log__remove-activity");
+        db.append(document.createTextNode("x"));
+        td2.append(db);
+        db.addEventListener('click', event => {
+            row.remove();
+        })
+        
+
+
+
         row.append(td1);
         row.append(td2);
+        row.addEventListener('click', (event) => {
+            row.remove();
+        })
         tableBody.append(row);
     });
 
@@ -34,9 +48,11 @@ window.onload = function () {
         let data = tableBody.children;
         let datalen = data.length;
         for (let index = 0; index < datalen; index++) {
+            activity = data[index].children[1].textContent.toString();
+            console.log(activity);
             log.push({
                 time: data[index].children[0].textContent,
-                activity: data[index].children[1].textContent
+                activity: activity.slice(0, activity.length-1)
             });
         }
         // console.log(log);
@@ -48,4 +64,13 @@ window.onload = function () {
             value: log
         }));
     });
+
+    let deleteButtons = Array.from(document.querySelectorAll('.daily-log__remove-activity'));
+    console.log(deleteButtons)
+    deleteButtons.forEach(button => {
+        console.log(button);
+        button.addEventListener('click', event => {
+            button.parentElement.parentElement.remove();
+        })
+    })
 }
