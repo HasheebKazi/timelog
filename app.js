@@ -1,7 +1,9 @@
 // external dependences: node modules
 const express = require('express');
-const bodyParser = require('body-parser');
+// const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const csrf = require('csurf');
+const flash = require('connect-flash');
 
 // node core libraries
 const path = require('path');
