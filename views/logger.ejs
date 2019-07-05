@@ -10,13 +10,19 @@
     <!-- <link type="text/css" rel="stylesheet" href="/css/reset.css"> -->
     <link type="text/css" rel="stylesheet" href="/css/tl_app.css">
 
+    <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <script src="/scripts/logger-scripts.js"></script>
 
 </head>
 
 <body>
 
+    <%- include('./includes/_nav.ejs') %>
     <main class="main-wrapper">
+
+
         <h1 class="landing-wrapper__title">
             Time Logger for <%= user.name %>.
         </h1>
@@ -75,6 +81,17 @@
 
 
     </main>
+    <script>
+            function myFunction() {
+              var x = document.getElementById("myTopnav");
+              if (x.className === "topnav") {
+                x.className += " responsive";
+              } else {
+                x.className = "topnav";
+              }
+            }
+    </script>
+            
 </body>
 
 </html>
