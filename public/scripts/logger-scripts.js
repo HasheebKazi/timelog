@@ -1,3 +1,4 @@
+counter = 0;
 window.onload = function () {
     console.log('success!');
 
@@ -6,8 +7,15 @@ window.onload = function () {
     let addButton = document.getElementById('add-entry');
 
     let tableBody = document.getElementById('daily-log-body');
+    // console.log(tableBody.children)
+    Array.from(tableBody.children).forEach(row => {
+        counter++;
+    });
+
+    console.log('counter', counter);    
 
     addButton.addEventListener('click', (event) => {
+        counter++;
         // get data
         time = timeInput.value;
         activity = activityInput.value;
@@ -25,8 +33,12 @@ window.onload = function () {
         db.append(document.createTextNode("x"));
         td2.append(db);
         db.addEventListener('click', event => {
-            console.log('removed!')
-            db.parentElement.parentElement.remove();
+            counter--;
+            console.log('removed!', db.parentElement.parentElement)
+            console.log('counter', counter);    
+            
+            x = document.getElementById('daily-log-body');
+            x.children[counter].remove();
         })
         
 
@@ -50,7 +62,7 @@ window.onload = function () {
         let datalen = data.length;
         for (let index = 0; index < datalen; index++) {
             activity = data[index].children[1].textContent.toString();
-            console.log(activity);
+            // console.log(activity);
             log.push({
                 time: data[index].children[0].textContent,
                 activity: activity.slice(0, activity.length-1)
@@ -67,10 +79,11 @@ window.onload = function () {
     });
 
     let deleteButtons = Array.from(document.querySelectorAll('.daily-log__remove-activity'));
-    console.log(deleteButtons)
+    // console.log(deleteButtons)
     deleteButtons.forEach(button => {
-        console.log(button);
+        // console.log(button);
         button.addEventListener('click', event => {
+            counter--;
             button.parentElement.parentElement.remove();
         })
     })
