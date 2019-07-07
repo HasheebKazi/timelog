@@ -6,13 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title> <%= pageTitle %> </title>
-    
+
 
     <!-- bootstrap 4 -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
 
     <!-- <link type="text/css" rel="stylesheet" href="/css/reset.css"> -->
     <link type="text/css" rel="stylesheet" href="/css/dailylog_u.css">
@@ -38,93 +45,77 @@
 
         <!-- <div class="body_wrapper"> -->
 
-            <table id="daily-log" class="log-display">
-                <thead>
-                    <tr>
-                        
-                        <th style="width: 150px">
-    
-                        </th>
+        <table id="daily-log" class="log-display table table-striped table-dark">
+            <thead>
+                <tr>
 
-                        <th style="width: 250px">
-                            Activity
-                        </th>
+                    <th style="width: 150px">
+                        Time
+                    </th>
 
-                    </tr>
-                </thead>
-                <tbody id="daily-log-body">
-                    <% for (let i = 0; i < data.length; i++) { %>
-                        <!-- <% console.log("dsfsdf", data[i].time) %> -->
-                        <tr>
-                            <td><%= data[i].time %></td>
-                            <td><%= data[i].activity %><button class="daily-log__remove-activity">X</button></td>
+                    <th style="width: 250px">
+                        Activity
+                    </th>
 
-                        </tr>
-                    <% } %>
-                
-                </tbody>
-            </table>
+                </tr>
+            </thead>
+            <tbody id="daily-log-body">
+                <% for (let i = 0; i < data.length; i++) { %>
+                <!-- <% console.log("dsfsdf", data[i].time) %> -->
+                <tr>
+                    <td><%= data[i].time %></td>
+                    <td><%= data[i].activity %><button class="daily-log__remove-activity">X</button></td>
 
-            <!-- <hr> -->
-            <!-- <div class="input-box"> -->
-                
-                <!-- <div class="form-group"> -->
-                    <!-- <lable for="logger-time">Time</lable> -->
-                    <!-- <input class="form-control" type="text" name="logger-time" id="logger-time" placeholder="time"> -->
+                </tr>
+                <% } %>
 
-                <!-- </div> -->
+            </tbody>
+        </table>
 
-                <!-- <div class="form-group"> -->
-                    <!-- <lable for="logger-activity">Activity</lable> -->
-                    <!-- <input class="form-control" type="text" name="logger-activity" id="logger-activity" placeholder="activity"> -->
-                <!-- </div> -->
-<!-- 
-                <button class="btn btn-primary input-box__btn--add" id="add-entry">Add</button>
-                <button class="btn btn-info input-box__btn--save" id="save-log">Save</button> -->
-            <!-- </div> -->
+        <div class="card" style="margin-top: 2rem">
 
-            <!-- Material form register -->
-    <div class="card" style="margin-top: 2rem">
+            <h5 class="card-header bg-secondary white-text text-center py-4">
+                <strong>Add New Entry</strong>
+            </h5>
 
-        <h5 class="card-header bg-secondary white-text text-center py-4">
-            <strong>Add New Entry</strong>
-        </h5>
+            <!--Card content-->
+            <div class="card-body px-lg-4 pt-0" style="margin-top: 2rem">
 
-        <!--Card content-->
-        <div class="card-body px-lg-4 pt-0" style="margin-top: 2rem">
-
-            <!-- Form -->
-            <div class="text-center" style="color: #757575;">
-
-                
+                <!-- Form -->
+                <div class="text-center" style="color: #757575;">
 
 
-                <div class="md-form mt-0">
-                    <input type="text" name="logger-time" id="logger-time" placeholder="time" class="form-control">
-                    <!-- <label for="materialRegisterFormEmail">Time</label> -->
-                </div>
-                <hr style="visibility: hidden;">
 
-                <div class="md-form">
-                    <input type="text" type="text" name="logger-activity" id="logger-activity"  placeholder="activity" class="form-control">
-                    <!-- <label for="materialRegisterFormPassword">Activity</label> -->
-                </div>
 
-                <div class="form-row">
-                    <div class="col">
-                        <button id="add-entry" class="btn btn-outline-primary btn-rounded btn-block my-4 waves-effect z-depth-0">Add</button>     
+                    <div class="md-form mt-0">
+                        <input type="text" name="logger-time" id="logger-time" placeholder="time" class="form-control">
+                        <!-- <label for="materialRegisterFormEmail">Time</label> -->
                     </div>
-                    <div class="col">
-                        <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" id="save-log" >Save</button>
+                    <hr style="visibility: hidden;">
+
+                    <div class="md-form">
+                        <input type="text" type="text" name="logger-activity" id="logger-activity"
+                            placeholder="activity" class="form-control">
+                        <!-- <label for="materialRegisterFormPassword">Activity</label> -->
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col">
+                            <button id="add-entry"
+                                class="btn btn-outline-primary btn-rounded btn-block my-4 waves-effect z-depth-0">Add</button>
+                        </div>
+                        <div class="col">
+                            <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0"
+                                id="save-log">Save</button>
+                        </div>
                     </div>
                 </div>
+                <!-- Form -->
+
             </div>
-            <!-- Form -->
 
         </div>
-
-    </div>
-<!-- Material form register -->
+        <!-- Material form register -->
 
 
 
@@ -134,16 +125,16 @@
 
     </main>
     <script>
-            function myFunction() {
-              var x = document.getElementById("myTopnav");
-              if (x.className === "topnav") {
+        function myFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
                 x.className += " responsive";
-              } else {
+            } else {
                 x.className = "topnav";
-              }
             }
+        }
     </script>
-            
+
 </body>
 
 </html>
