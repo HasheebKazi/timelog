@@ -68,7 +68,7 @@ window.onload = function () {
                 activity: activity.slice(0, activity.length-1)
             });
         }
-        // console.log(log);
+        console.log('data\n', log);
 
         const xhr = new XMLHttpRequest();
         xhr.open("POST", 'http://localhost:3000/logger', true);

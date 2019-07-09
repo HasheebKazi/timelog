@@ -52,27 +52,17 @@ exports.getLogger = (req, res, next) => {
 };
 
 exports.postLogger = (req, res, next) => {
-    
+    console.log('reached')
+
     Day.findOne({
         name: "hash"
     })
     .then(result => {
-        result.addEntry({
-            time: "time",
-            activity: "activity"
-        });
+        result.log = req.body.value;
+        result.save();
+        res.redirect('/logger')
     })
     .catch(err => {
         console.log(err)
     });
-    
-    
-    // console.log(req.body.value);
-    // fs.writeFile(database, JSON.stringify(req.body.value), err => {
-    //     if (err) {
-    //         console.log(err);
-    //     } else {
-    //         console.log('data-saved');
-    //     }
-    // })
 };
