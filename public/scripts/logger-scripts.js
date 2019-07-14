@@ -12,7 +12,7 @@ window.onload = function () {
         counter++;
     });
 
-    console.log('counter', counter);    
+    console.log('counter', counter);
 
     addButton.addEventListener('click', (event) => {
         counter++;
@@ -35,12 +35,12 @@ window.onload = function () {
         db.addEventListener('click', event => {
             counter--;
             console.log('removed!', db.parentElement.parentElement)
-            console.log('counter', counter);    
-            
+            console.log('counter', counter);
+
             x = document.getElementById('daily-log-body');
             x.children[counter].remove();
         })
-        
+
 
 
 
@@ -55,7 +55,7 @@ window.onload = function () {
 
 
     let saveButton = document.getElementById('save-log');
-    
+
     saveButton.addEventListener('click', (event) => {
         let log = [];
         let data = tableBody.children;
@@ -65,7 +65,7 @@ window.onload = function () {
             // console.log(activity);
             log.push({
                 time: data[index].children[0].textContent,
-                activity: activity.slice(0, activity.length-1)
+                activity: activity.slice(0, activity.length - 1)
             });
         }
         console.log('data\n', log);
@@ -87,4 +87,22 @@ window.onload = function () {
             button.parentElement.parentElement.remove();
         })
     })
+
+
+    const backdrop = document.querySelector('.backdrop');
+    const sideDrawer = document.querySelector('.mobile-nav');
+    const menuToggle = document.querySelector('#side-menu-toggle');
+
+    function backdropClickHandler() {
+        backdrop.style.display = 'none';
+        sideDrawer.classList.remove('open');
+    }
+
+    function menuToggleClickHandler() {
+        backdrop.style.display = 'block';
+        sideDrawer.classList.add('open');
+    }
+
+    backdrop.addEventListener('click', backdropClickHandler);
+    menuToggle.addEventListener('click', menuToggleClickHandler);
 }
