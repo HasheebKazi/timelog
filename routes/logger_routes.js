@@ -18,7 +18,7 @@ router.post('/logger', jsonParser, loggerController.postLogger);
 // router.post('/signup', loggerController.postSignup);
 
 router.get('/login', loggerController.getLogin);
-// router.post('/login', loggerController.postLogin);
+router.post('/login', loggerController.postLogin);
 
 
 module.exports = router;
