@@ -52,8 +52,6 @@ exports.getLogger = (req, res, next) => {
 };
 
 exports.postLogger = (req, res, next) => {
-    console.log('reached')
-
     Day.findOne({
         name: "hash"
     })
@@ -64,5 +62,16 @@ exports.postLogger = (req, res, next) => {
     })
     .catch(err => {
         console.log(err)
+    });
+};
+
+exports.getLogin = (req, res, next) => {
+    res.render('auth/login', {
+        pageTitle: 'login',
+        validationErrors: [],
+        oldInput: {
+            email: '',
+            password: ''
+        }
     });
 };

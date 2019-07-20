@@ -14,11 +14,11 @@ const loggerController = require('../controllers/logger_controller');
 router.get('/logger', loggerController.getLogger);
 router.post('/logger', jsonParser, loggerController.postLogger);
 
-router.get('/signup', loggerController.getSignup);
-router.post('/signup', loggerController.postSignup);
+// router.get('/signup', loggerController.getSignup);
+// router.post('/signup', loggerController.postSignup);
 
 router.get('/login', loggerController.getLogin);
-router.post('/login', loggerController.postLogin);
+// router.post('/login', loggerController.postLogin);
 
 
 module.exports = router;
