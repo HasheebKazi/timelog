@@ -1,6 +1,6 @@
 // external dependences: node modules
 const express = require('express');
-// const bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
@@ -35,7 +35,7 @@ app.use(
         store: store
     })
 );
-app.use(csrfProtection);
+// app.use(csrfProtection);
 app.use(flash());
 
 app.set('view engine', 'ejs');
@@ -43,7 +43,7 @@ app.set('views', 'views');
 
 // request response cycle
 app.use(express.static(path.join(__dirname, 'public')));
-// app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 
 app.get('/', (req, res, next) => {
