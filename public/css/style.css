@@ -1,0 +1,70 @@
+/* global styles */
+body {
+    font-family: 'Acme', Courier, monospace;
+    background-color: rgb(224, 224, 224);
+}
+
+/* app styles */
+.wrapper {
+    background-color: white;
+
+    min-width: 300px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.title {
+    font-size: 3rem;
+    text-align: center;
+
+    padding: 1rem 0 1rem 0;
+    /* margin: 1rem; */
+}
+
+/* .main-app {
+    min-width: 280px;
+    max-width: 980px;
+    margin: 0 auto;
+} */
+
+.time-log {
+    min-width: 500px;
+    max-width: 980px;
+    margin: 0 auto;
+
+    font-size: 1.5rem;
+}
+
+.time-log__row {
+    text-align: left;
+}
+
+.time-log__row-data {
+    padding: 1rem 0rem 0.5rem 0rem;
+}
+
+.controls {
+    margin: 0 auto;
+    height: 150px;
+    width: 250px;
+    text-align: center;
+}
+
+.controls > a {
+    margin-top: 1rem;
+}
+
+.controls__input {
+    /* spacing */
+    margin-top: 20px;
+    
+    /* size */
+    height: 20%;
+    width: 100%;
+    
+    border: none;
+    border-bottom: 2px solid black;
+    background-color: transparent; 
+    /* font */
+    font-size: 1.5rem;
+}

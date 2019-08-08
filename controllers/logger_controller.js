@@ -33,7 +33,7 @@ exports.getLogger = (req, res, next) => {
                 name: 'Name'
             },
             currentDate: 'Someday Month Day, Year',
-            data: result.log
+            data: []
         });
     })
     .catch(err => {

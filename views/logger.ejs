@@ -29,115 +29,66 @@
     <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <script src="/scripts/logger-scripts.js"></script>
-    <script src="/scripts/nav_scripts.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Acme&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/style.css" type="text/css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css"
+        integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
+
+    <script src="/scripts/main_scripts.js"></script>
 
 
 </head>
 
 <body>
-
-    <%- include('./includes/_nav.ejs') %>
-    <main class="main-wrapper">
+    <div class="wrapper">
 
 
-        <h1 class="display-3">
-            Time Logger for <%= user.name %>.
+        <h1 class="title">
+            Welcome
         </h1>
 
-        <h2>Date: <%= currentDate %></h2>
+        <div class="main-app">
+            <table id="daily-log-body" class="time-log">
+                <thead class="time-log__row time-log__header">
+                    <tr>
+                        <th class="time-log__row-data time-log__row-heading">Time</th>
+                        <th class="time-log__row-data time-log__row-heading">Activity</th>
+                    </tr>
+                </thead>
+                <tbody id="daily-log-body">
+                    <% for (let i = 0; i < data.length; i++) { %>
+                    <!-- <% console.log("dsfsdf", data[i].time) %> -->
+                    <tr>
+                        <td><%= data[i].time %></td>
+                        <td><%= data[i].activity %><button class="daily-log__remove-activity">X</button></td>
 
-        <!-- <div class="body_wrapper"> -->
+                    </tr>
+                    <% } %>
 
-        <table id="daily-log" class="log-display table table-striped table-dark">
-            <thead>
-                <tr>
-
-                    <th style="width: 150px">
-                        Time
-                    </th>
-
-                    <th style="width: 250px">
-                        Activity
-                    </th>
-
-                </tr>
-            </thead>
-            <tbody id="daily-log-body">
-                <% for (let i = 0; i < data.length; i++) { %>
-                <!-- <% console.log("dsfsdf", data[i].time) %> -->
-                <tr>
-                    <td><%= data[i].time %></td>
-                    <td><%= data[i].activity %><button class="daily-log__remove-activity">X</button></td>
-
-                </tr>
-                <% } %>
-
-            </tbody>
-        </table>
-
-        <div class="card" style="margin-top: 2rem">
-
-            <h5 class="card-header bg-secondary white-text text-center py-4">
-                <strong>Add New Entry</strong>
-            </h5>
-
-            <!--Card content-->
-            <div class="card-body px-lg-4 pt-0" style="margin-top: 2rem">
-
-                <!-- Form -->
-                <div class="text-center" style="color: #757575;">
+                </tbody>
+            </table>
 
 
-
-
-                    <div class="md-form mt-0">
-                        <input type="text" name="logger-time" id="logger-time" placeholder="time" class="form-control">
-                        <!-- <label for="materialRegisterFormEmail">Time</label> -->
-                    </div>
-                    <hr style="visibility: hidden;">
-
-                    <div class="md-form">
-                        <input type="text" type="text" name="logger-activity" id="logger-activity"
-                            placeholder="activity" class="form-control">
-                        <!-- <label for="materialRegisterFormPassword">Activity</label> -->
-                    </div>
-
-                    <div class="form-row">
-                        <div class="col">
-                            <button id="add-entry"
-                                class="btn btn-outline-primary btn-rounded btn-block my-4 waves-effect z-depth-0">Add</button>
-                        </div>
-                        <div class="col">
-                            <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0"
-                                id="save-log">Save</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- Form -->
-
+            <div class="controls">
+                <input id="activity_input" type="text" class="controls__input">
+                <!-- Wireframe 'sketch' buttons -->
+                <a id="save" href="#" class="pure-button pure-button-primary">Add</a>
+                <a id="add" href="#" class="pure-button">Save</a>
             </div>
-
         </div>
-        <!-- Material form register -->
+
+
+    </div>
 
 
 
-        <!-- </div> -->
 
 
 
-    </main>
-    <script>
-        function myFunction() {
-            var x = document.getElementById("myTopnav");
-            if (x.className === "topnav") {
-                x.className += " responsive";
-            } else {
-                x.className = "topnav";
-            }
-        }
-    </script>
+
+
 
 </body>
 

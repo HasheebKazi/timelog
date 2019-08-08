@@ -12,7 +12,7 @@ const path = require('path');
 const fs = require('fs');
 
 // const MONGODB_URI = process.env.MONGODB_URI;
-const MONGODB_URI = 'mongodb+srv://node_project:AkWcOzQBkbWJdXoA@summer-2019-fo8l7.mongodb.net/timelog';
+const MONGODB_URI = 'mongodb+srv://node_project:cMrLLAlzhLBfX2Ug@summer-2019-fo8l7.mongodb.net/messages';
 const store = new MongoDBStore({
     uri: MONGODB_URI,
     collection: 'sessions'
