@@ -3,59 +3,69 @@ window.onload = function() {
 
     console.log('success!');
 
-    // let timeInput = document.getElementById('logger-time');
+    let timeInput = document.getElementById('time_input');
     let activityInput = document.getElementById('activity_input');
-    let addButton = document.getElementById('save');
+    let addButton = document.getElementById('add');
 
-    let tableBody = document.getElementById('daily-log-body');
+
+    let tableBody = document.getElementById('daily-log-tbody');
+
+    document.body.addEventListener('click', event => {
+        if (event.target.className === 'daily-log__remove-activity') {
+            // event.target.addEventListener('click', event => {
+                event.target.parentElement.parentElement.remove();
+            // });
+        }
+    });
     // console.log(tableBody.children)
     Array.from(tableBody.children).forEach(row => {
         counter++;
     });
-
-    console.log('counter', counter);
+    console.log('counter after counting initial elements', counter);
 
     addButton.addEventListener('click', (event) => {
         counter++;
         // get data
-        // time = timeInput.value;
+        time = timeInput.value;
         activity = activityInput.value;
         // reset fields
-        // timeInput.value = "";
+        timeInput.value = "";
         activityInput.value = "";
 
         row = document.createElement('tr');
         td1 = document.createElement('td');
         td2 = document.createElement('td');
-        td1.append(document.createTextNode('time'));
+        td1.append(document.createTextNode(time));
         td2.append(document.createTextNode(activity));
         db = document.createElement('button');
         db.classList.add("daily-log__remove-activity");
+
         db.append(document.createTextNode("x"));
         td2.append(db);
-        db.addEventListener('click', event => {
-            counter--;
-            console.log('removed!', db.parentElement.parentElement)
-            console.log('counter', counter);
+        
+        // db.addEventListener('click', event => {
+        //     counter--;
+        //     console.log('removed!', db.parentElement.parentElement)
+        //     console.log('counter', counter);
 
-            x = document.getElementById('daily-log-body');
-            x.children[counter].remove();
-        })
+        //     x = document.getElementById('daily-log-body');
+        //     x.children[counter].remove();
+        // })
 
 
 
 
         row.append(td1);
         row.append(td2);
-        row.addEventListener('click', (event) => {
-            row.remove();
-        })
+        // row.addEventListener('click', (event) => {
+        //     row.remove();
+        // })
         tableBody.append(row);
     });
 
 
 
-    let saveButton = document.getElementById('save-log');
+    let saveButton = document.getElementById('save');
 
     saveButton.addEventListener('click', (event) => {
         let log = [];

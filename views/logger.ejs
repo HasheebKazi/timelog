@@ -57,7 +57,8 @@
                         <th class="time-log__row-data time-log__row-heading">Activity</th>
                     </tr>
                 </thead>
-                <tbody id="daily-log-body">
+                <tbody id="daily-log-tbody">
+
                     <% for (let i = 0; i < data.length; i++) { %>
                     <!-- <% console.log("dsfsdf", data[i].time) %> -->
                     <tr>
@@ -72,10 +73,11 @@
 
 
             <div class="controls">
-                <input id="activity_input" type="text" class="controls__input">
+                <input id="time_input" type="text" class="controls__input" placeholder="time (HR:MIN e.g 8:00)">
+                <input id="activity_input" type="text" class="controls__input" placeholder="activity">
                 <!-- Wireframe 'sketch' buttons -->
-                <a id="save" href="#" class="pure-button pure-button-primary">Add</a>
-                <a id="add" href="#" class="pure-button">Save</a>
+                <a id="add" href="#" class="pure-button pure-button-primary">Add</a>
+                <a id="save" href="#" class="pure-button">Save</a>
             </div>
         </div>
 
